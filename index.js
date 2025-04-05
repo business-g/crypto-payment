@@ -12,7 +12,8 @@ app.use(express.json());
 // Конфигурация
 const NP_API_KEY = process.env.NP_API_KEY; // API-ключ NOW Payments
 const NP_IPN_SECRET = process.env.NP_IPN_SECRET; // Секрет для проверки IPN
-const CONSTRUCTOR_DOWNLOAD_URL = process.env.CONSTRUCTOR_DOWNLOAD_URL; // URL сайта-конструктора
+const DOWNLOAD_URL = process.env.DOWNLOAD_URL; // URL сайта-конструктора
+const CANCEL_URL = process.env.CANCEL_URL;
 
 // Создание платежа
 app.get('/create-payment', async (req, res) => {
@@ -23,8 +24,8 @@ app.get('/create-payment', async (req, res) => {
         price_amount: 4.0,
         price_currency: 'usd',
         order_id: `ORDER_${Date.now()}`,
-        success_url: CONSTRUCTOR_DOWNLOAD_URL,
-        cancel_url: CONSTRUCTOR_DOWNLOAD_URL,
+        success_url: DOWNLOAD_URL,
+        cancel_url: CANCEL_URL,
       },
       {
         headers: {
@@ -36,7 +37,7 @@ app.get('/create-payment', async (req, res) => {
     res.redirect(response.data.invoice_url);
   } catch (error) {
     console.error('Payment error:', error.response?.data || error.message);
-    res.redirect(CONSTRUCTOR_DOWNLOAD_URL + '?status=error');
+    res.redirect(DOWNLOAD_URL + '?status=error');
   }
 });
 
