@@ -13,5 +13,9 @@
     "axios": "^1.8.4",
     "crypto": "^1.0.1",
     "express": "^5.1.0"
-  }
+  },
+  "scripts": {
+  "start": "node server.js"
+}
+  
 }
