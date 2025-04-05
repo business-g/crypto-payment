@@ -1,8 +1,9 @@
 {
   "name": "crypto-payment",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -13,9 +14,5 @@
     "axios": "^1.8.4",
     "crypto": "^1.0.1",
     "express": "^5.1.0"
-  },
-  "scripts": {
-  "start": "node server.js"
-}
-  
+  }
 }
