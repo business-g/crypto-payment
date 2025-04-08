@@ -21,7 +21,7 @@ app.get('/create-payment', async (req, res) => {
     const response = await axios.post(
       'https://api.nowpayments.io/v1/invoice',
       {
-        price_amount: 1.0,
+        price_amount: 9.99,
         price_currency: 'usd',
         order_id: `ORDER_${Date.now()}`,
         success_url: DOWNLOAD_URL,
